@@ -1,0 +1,15 @@
+.footer {
+  color: rgba(33,33,33,0.7);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  width: 104px;
+  height: 16px;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  top: 1340px;
+  left: 668px;
+  white-space: nowrap;
+}
