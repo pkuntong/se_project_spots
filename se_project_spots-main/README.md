@@ -16,5 +16,5 @@ Responsive Design
 
 This webpage is deployed to Github Pages
 
-- [Deployment link] (https://github.com/pkuntong/se_project_spots/tree/main/se_project_spots-main)
+- [Deployment link] (https://github.com/pkuntong/se_project_spots-main)
 
