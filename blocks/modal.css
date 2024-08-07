@@ -2,14 +2,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  visibility: hidden;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .modal_opened {
@@ -36,7 +38,10 @@
   opacity: 40%;
   border: 2px;
   background-color: transparent;
+}
 
+.modal__close-btn:hover {
+  cursor: pointer;
 }
 
 .modal__title {
