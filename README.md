@@ -11,6 +11,7 @@ Describe the project and its functionality.
 HTML
 CSS
 Responsive Design 
+JavaScript
 
 ## Deployment 
 
