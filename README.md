@@ -1,10 +1,10 @@
-# Project 3: Spots
+# Project 6: Spots
 
 An image sharing site. 
 
 ## Description
 
-Describe the project and its functionality. 
+I'm wrapping up Sprint 6 of the TripleTen Software Engineering course, working on 'Spots,' a social media web app where users can add, remove, and like photos, as well as edit their profile name. The project, built with HTML, CSS, and JavaScript, follows a Figma design brief. Link to the project on Figma [https://www.figma.com/design/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project%3A-Spots?node-id=2-60&t=O8RbFQKJz2UQS4qN-0]
 
 ## Tech stack 
 
