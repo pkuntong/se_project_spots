@@ -68,6 +68,9 @@ const settings = {
     console.log(buttonElement);
   
     toggleButtonState(inputList, buttonElement, config);
+    formElement.addEventListener("reset", () => {
+        disableButton(buttonElement, config);
+       });
   
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {

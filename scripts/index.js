@@ -52,6 +52,8 @@ const cardModalForm = cardModal.querySelector("#add-card-form");
 const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
 const imageInput = cardModal.querySelector("#add-card-link-input");
 const titleInput = cardModal.querySelector("#add-card-caption-input");
+const profileForm = document.forms["edit-profile-form"];
+const cardForm = document.forms["add-card-form"];
 
 // Card-related elements
 const cardTemplate = document.querySelector("#card-template").content;
@@ -108,7 +110,7 @@ function getCardElement(data) {
   });
 
   carddeleteButton.addEventListener("click", () => {
-    cardElement.remove("disabled");
+    cardElement.remove();
   });
 
   cardImageElement.addEventListener("click", () => {
@@ -136,7 +138,7 @@ function handleAddCardSubmit(evt) {
 
   const inputValues = { name: titleInput.value, link: imageInput.value };
   const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  renderCard(inputValues);
 
   cardModalForm.reset();
   disableButton(cardSubmitButton, settings);
@@ -168,6 +170,3 @@ initialCards.forEach((item) => {
 
 cardModalForm.addEventListener("submit", handleAddCardSubmit);
 
-function handleFormSubmit(evt) {
-  evt.preventDefault();
-}
