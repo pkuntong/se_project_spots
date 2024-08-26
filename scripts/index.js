@@ -52,8 +52,6 @@ const cardModalForm = cardModal.querySelector("#add-card-form");
 const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
 const imageInput = cardModal.querySelector("#add-card-link-input");
 const titleInput = cardModal.querySelector("#add-card-caption-input");
-const profileForm = document.forms["edit-profile-form"];
-const cardForm = document.forms["add-card-form"];
 
 // Card-related elements
 const cardTemplate = document.querySelector("#card-template").content;
@@ -137,11 +135,9 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
   const inputValues = { name: titleInput.value, link: imageInput.value };
-  const cardElement = getCardElement(inputValues);
-  renderCard(inputValues);
+  renderCard(inputValues, 'prepend');
 
   cardModalForm.reset();
-  disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
 }
 
