@@ -184,7 +184,7 @@
   width: 600px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
   .modal {
     padding: 0 10px;
 
@@ -206,10 +206,11 @@
   }
 
   .modal__container {
-    padding: 12px;
     max-width: 320px;
-    max-height: 336px;
     width: 100%;
+    padding: 22px 12px 12px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .modal__container_type_preview {
