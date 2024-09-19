@@ -1,7 +1,6 @@
 import "./index.css";
 import {
   enableValidation,
-  settings,
   resetValidation,
 } from "../scripts/validation.js";
 
@@ -115,7 +114,7 @@ function getCardElement(data) {
   const cardNameElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardLikeButton = cardElement.querySelector(".card__like-btn");
-  const cardBinButton = cardElement.querySelector(".card__bin-btn");
+  const cardBinButton = cardElement.querySelector(".card__delete-btn");
 
   cardImageElement.src = data.link;
   cardImageElement.alt = data.alt;
