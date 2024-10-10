@@ -1,4 +1,4 @@
-import "../index.css";
+import "./index.css";
 import {
   enableValidation,
   settings,
@@ -6,7 +6,7 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
-import { handleSubmit } from "../utils/helpers.js";
+import { handleSubmit } from "../utils/helpers";
 
 let selectedCard, selectedCardId;
 
