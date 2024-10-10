@@ -10,12 +10,12 @@ import { handleSubmit } from "../utils/helpers";
 
 let selectedCard, selectedCardId;
 
-// API
+// API setup
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "7a1857b8-0326-43ef-b325-d3424afa2503",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
 });
 
@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   api
     .getAppInfo()
     .then(([cards, users]) => {
+      if (!Array.isArray(cards) || !users) {
+        console.error("Invalid API response structure.");
+        return;
+      }
       cards.reverse();
       cards.forEach((card) => {
         renderCard(card);
@@ -81,7 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
       profileName.textContent = users.name;
       profileDescription.textContent = users.about;
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error("Failed to fetch app info:", error);
+    });
 
   // Functions
   function closeModalOverlay(evt) {
@@ -121,20 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardNameElement = cardElement.querySelector(".card__title");
     const cardImageElement = cardElement.querySelector(".card__image");
     const cardLikeButton = cardElement.querySelector(".card__like-btn");
-    const carddeleteButton = cardElement.querySelector(".card__delete-btn");
+    const cardDeleteButton = cardElement.querySelector(".card__delete-btn");
 
+    // Setting card attributes
+    cardImageElement.src = data.link;
+    cardImageElement.alt = data.name; // Set alt to name
+    cardNameElement.textContent = data.name;
+
+    // Check if card is liked
     if (data.isLiked) {
       cardLikeButton.classList.add("card__like-btn_liked");
     }
 
-    cardImageElement.src = data.link;
-    cardImageElement.alt = data.alt;
-    cardNameElement.textContent = data.name;
-
+    // Event listeners
     cardLikeButton.addEventListener("click", (evt) => handleLike(evt, data._id));
-    carddeleteButton.addEventListener("click", () =>
-      handleDeleteCard(cardElement, data._id)
-    );
+    cardDeleteButton.addEventListener("click", () => handleDeleteCard(cardElement, data._id));
     cardImageElement.addEventListener("click", () => handleImageClick(data));
 
     return cardElement;
@@ -142,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Event handlers
   function handleAvatarSubmit(evt) {
+    evt.preventDefault(); // Prevent default form submission
     function makeRequest() {
       return api.editAvatarInfo(avatarInput.value).then((avatarData) => {
         profileImage.src = avatarData.avatar;
@@ -149,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closeModal(avatarModal);
       });
     }
-
     handleSubmit(makeRequest, evt);
   }
 
@@ -179,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleEditProfileSubmit(evt) {
+    evt.preventDefault(); // Prevent default form submission
     function makeRequest() {
       return api
         .editUserInfo({
@@ -191,11 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModal(editProfileModal);
         });
     }
-
     handleSubmit(makeRequest, evt);
   }
 
   function handleAddCardSubmit(evt) {
+    evt.preventDefault(); // Prevent default form submission
     function makeRequest() {
       return api
         .addCard({ name: titleInput.value, link: imageInput.value })
@@ -205,18 +213,17 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModal(cardModal);
         });
     }
-
     handleSubmit(makeRequest, evt);
   }
 
   function handleDeleteCardSubmit(evt) {
+    evt.preventDefault(); // Prevent default form submission
     function makeRequest() {
       return api.deleteCard(selectedCardId).then(() => {
         selectedCard.remove();
         closeModal(deleteModal);
       });
     }
-
     handleSubmit(makeRequest, evt, "Deleting...");
   }
 
