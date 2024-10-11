@@ -6,22 +6,28 @@
   
   .profile__avatar-container {
     position: relative;
+    margin-right: 20px;
   }
   
   .profile__avatar-btn {
     position: absolute;
+    border-radius: 10px;
+    border: none;
     width: 100%;
-    height: 100%;
-  
+    height: 190px;
+    padding: 0 0 12px;
+    background-color: #000;
+    opacity: 0.5;
+    color: white;
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-  
+    align-items: flex-end;
     visibility: hidden;
   }
   
   .profile__avatar-container:hover .profile__avatar-btn {
     visibility: visible;
+    cursor: pointer;
   }
   
   .profile__avatar-btn::after {
@@ -34,13 +40,6 @@
     width:  190px;
     border-radius: 8px;
     object-fit: cover;
-  }
-  
-  
-  
-  .profile__column {
-    display: flex;
-    flex-direction: column;
   }
   
   .profile__name {
@@ -59,6 +58,10 @@
   
   .profile__description {
     margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(33, 33, 33, 0.7);
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
@@ -67,13 +70,26 @@
     max-width: 420px;
   }
   
+  .profile__column {
+    display: flex;
+    flex-direction: column;
+  }
+
   .profile__edit-btn {
-    opacity: 0.7;
     margin-top: auto;
-    border-style: none;
-    background: border-box;
-    align-self: self-start;
     opacity: 0.7;
+    color: #212121;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    background-color: transparent;
+    border: none;
+    width: 107.34px;
+    height: 16px;
+    text-wrap: nowrap;
+    padding: 0;
+    display: flex;
+    cursor: pointer;
   }
   
   .profile__edit-btn:hover {
@@ -83,22 +99,22 @@
   
   .profile__pencil-icon {
     padding-right: 8px;
+    color: #212121;
   }
   
   .profile__add-btn {
     margin-left: auto;
-    margin-top: 138px;
-    margin-bottom: 20px;
-    padding: 18px 24px;
-    width: 157px;
+    margin-top: auto;
+    color: #fcf5e5;
     background-color: #212121;
-    color: #FCF5E5;
-    height: 52px;
-    border-radius: 8px;
-    border-style: none;
-    font-weight: 500;
-    font-size: 16px;
     line-height: 1;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 149px;
+    height: 52px;
+    border-radius: 10px;
+    cursor: pointer;
   }
   
   .profile__plus-icon {
@@ -108,54 +124,68 @@
   }
   
   .profile__add-btn:hover {
-    opacity: 0.8;
-    cursor: pointer;
+    background-color: rgba(33, 33, 33, 0.8);
   }
   
   @media screen and (max-width: 627px) {
     .profile {
-      width: 100%;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding-top: 20px;
+      padding: 20px 0;
+    }
+  
+    .profile__avatar-container {
+      margin: 0 0 12px;
     }
   
     .profile__avatar-btn {
-      visibility: visible; 
+      visibility: visible;
+      background-color: #212121;
+      opacity: 0.6;
+      width: 23.34px;
+      height: 23.34px;
+      top: 52px;
+      left: 52px;
+      padding: 0;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
     }
   
-    // TODO - set content of ::after element to **
-  
-  
+    .profile__avatar-btn::after {
+        content: "";
+      }
+    
+    .profile__avatar-btn .profile__pencil-icon {
+        padding: 0;
+      }
+
     .profile__avatar {
       height: 80px;
       width: 80px;
-      margin-top: 20px;
+      margin: 0 0 12px;
     }
   
     .profile__name {
       font-size: 20px;
       max-width: 288px;
       margin: 0 0 6px;
-    }
-  
-    .profile__column {
-      margin: 0 0 20px;
+      text-align: center;
     }
   
     .profile__description {
       margin: 0 0 32px;
       max-width: 288px;
+      text-align: center;
     }
   
     .profile__add-btn {
-      width: 100%;
-      margin: 0;
+      width: 288px;
+      margin: auto;
     }
   
     .profile__edit-btn {
-      align-self: center;
+      margin: auto auto 20px;
     }
   
   }
