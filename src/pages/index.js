@@ -14,7 +14,7 @@ let selectedCard, selectedCardId;
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "7a1857b8-0326-43ef-b325-d3424afa2503",
+    authorization: "3f12c5b5-3e74-48ea-937f-23ac37f0f2e1",
     "Content-Type": "application/json",
   },
 });
