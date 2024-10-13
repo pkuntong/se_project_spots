@@ -222,8 +222,10 @@ function handleDeleteCardSubmit(evt) {
 
 // Event listeners
 closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
+  button.addEventListener("click", (evt) => { 
+  const modal = evt.target.closest(".modal");
+  closeModal(modal);
+});
 });
 
 avatarModalButton.addEventListener("click", () => {

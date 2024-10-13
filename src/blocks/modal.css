@@ -179,6 +179,11 @@
   opacity: .5;
 }
 
+.modal__submit-btn_type_delete {
+  background-color: #ff6565;
+  color: black;
+}
+
 .modal__form {
   width: 600px;
 }
