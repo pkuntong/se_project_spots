@@ -14,7 +14,7 @@ let selectedCard, selectedCardId;
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "128cdac4-846c-4fc5-a0d1-eaaaa7448e3c",
+    authorization: "9761a594-3fe1-46bc-8b2b-b1c551adb983",
     "Content-Type": "application/json",
   },
 });
@@ -34,7 +34,7 @@ api
   .catch(console.error);
 
 // Universal elements
-const closeButtons = document.querySelectorAll("#modal-close-btn");
+const closeButtons = document.querySelectorAll(".modal__close-btn");
 
 // Profile elements
 const editProfileButton = document.querySelector(".profile__edit-btn");
@@ -100,11 +100,12 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
+  if (modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalEsc);
   modal.removeEventListener("mousedown", closeModalOverlay);
 }
-
+}
 function renderCard(item, method = "prepend") {
   const cardElement = getCardElement(item);
   cardsList[method](cardElement);
@@ -222,10 +223,10 @@ function handleDeleteCardSubmit(evt) {
 
 // Event listeners
 closeButtons.forEach((button) => {
-  button.addEventListener("click", (evt) => { 
-  const modal = evt.target.closest(".modal");
-  closeModal(modal);
-});
+  button.addEventListener("click", (event) =>{
+    const modal = event.target.closest(".modal"); 
+    closeModal(modal);
+  });
 });
 
 avatarModalButton.addEventListener("click", () => {
