@@ -8,72 +8,61 @@ class Api {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
 
-  checkResponse(res) {
+  _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Error ${res.status}`);
   }
 
-  request(url, options) {
-    return fetch(url, options).then(this.checkResponse);
+  _request(endpoint, options = {}) {
+    const finalOptions = {
+      headers: this._headers,  
+      ...options,  
+    };
+
+    const url = `${this._baseUrl}${endpoint}`;  
+    return fetch(url, finalOptions).then(this._checkResponse);  
   }
 
   getInitialCards() {
-    return this.request(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    });
+    return this._request('/cards');
   }
 
   getUserInfo() {
-    return this.request(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    });
+    return this._request('/users/me');
   }
 
   editUserInfo({ name, about }) {
-    return this.request(`${this._baseUrl}/users/me`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about,
-      }),
+    return this._request('/users/me', {
+      method: 'PATCH',
+      body: JSON.stringify({ name, about }),
     });
   }
 
   editAvatarInfo(avatar) {
-    return this.request(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar,
-      }),
+    return this._request('/users/me/avatar', {
+      method: 'PATCH',
+      body: JSON.stringify({ avatar }),
     });
   }
 
   addCard({ name, link }) {
-    return this.request(`${this._baseUrl}/cards`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        name,
-        link,
-      }),
+    return this._request('/cards', {
+      method: 'POST',
+      body: JSON.stringify({ name, link }),
     });
   }
 
   deleteCard(id) {
-    return this.request(`${this._baseUrl}/cards/${id}`, {
-      method: "DELETE",
-      headers: this._headers,
+    return this._request(`/cards/${id}`, {
+      method: 'DELETE',
     });
   }
 
   changeLikeStatus(id, isLiked) {
-    return this.request(`${this._baseUrl}/cards/${id}/likes`, {
-      method: isLiked ? "DELETE" : "PUT",
-      headers: this._headers,
+    return this._request(`/cards/${id}/likes`, {
+      method: isLiked ? 'DELETE' : 'PUT',
     });
   }
 }
