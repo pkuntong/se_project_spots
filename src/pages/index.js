@@ -59,9 +59,9 @@ const titleInput = cardModal.querySelector("#card-caption-input");
 
 // Avatar form elements
 const avatarModal = document.querySelector("#avatar-modal");
-const avatarModalForm = avatarModal.querySelector("#edit-avatar-form");
-const avatarInput = avatarModal.querySelector("#profile-avatar-input");
-const avatarSubmitButton = avatarModal.querySelector(".modal__submit-btn");
+const avatarModalForm = document.forms["edit-avatar-form"]; 
+const avatarInput = avatarModalForm.elements["avatar"]; 
+const avatarSubmitButton = avatarModalForm.querySelector(".modal__submit-btn"); 
 
 // Delete form elements
 const deleteModal = document.querySelector("#delete-modal");
