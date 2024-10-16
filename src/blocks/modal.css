@@ -58,7 +58,7 @@
 }
 
 .modal__close-btn {
-  background-image: url(../images/close.svg);
+  background-image: url(../images/close_icon.svg);
   position: absolute;
   padding: 0;
   top: 32px;
@@ -77,13 +77,18 @@
   right: -52.5px;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0);
-  background-image: url(../images/close-white.svg);
+  background-image: url(../images/close_icon_light.svg);
+}
+
+.modal__close-btn_type_preview:hover {
+  background-image: url(../images/close_icon-light-hover.svg);
 }
 
 .modal__close-btn-type_delete {
   top: 0; 
   right: -52.5px;
   opacity: 1;
+  background-image: url(../images/close_icon_light.svg);
 }
 
 .modal__caption {
@@ -103,7 +108,6 @@
 }
 
 .modal__close-btn:hover {
-  background-image: url(../images/close-hover.svg);
   cursor: pointer;
 }
 
@@ -269,11 +273,6 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
-  }
-
-  .modal__close-btn_type_preview {
-    top: -52px;
-    right: 0;
   }
 
   .modal__input {
