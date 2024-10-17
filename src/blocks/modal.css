@@ -218,7 +218,7 @@
 
 @media screen and (max-width: 320px) {
   .modal__preview {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: transparent;
   }
 
   .modal__container {
@@ -235,12 +235,12 @@
   }
 
   .modal__close-btn {
-    top: 12px;
-    right: 12px;
+    top: -15px;
+    right: 2px;
   }
 
   .modal__close-btn_type_preview {
-    top: -22px;
+    top: 0;
   }
 
   .modal__title {
