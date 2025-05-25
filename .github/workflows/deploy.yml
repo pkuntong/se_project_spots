@@ -23,4 +23,12 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: .
-          branch: gh-pages 
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            .git
+            .github
+            node_modules
+            .gitignore
+            package.json
+            package-lock.json 
