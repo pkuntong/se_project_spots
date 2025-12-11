@@ -32,7 +32,7 @@ const initialCards = [
 ];
 
 // Universal elements
-const closeButtons = document.querySelectorAll("#modal-close-btn");
+const closeButtons = document.querySelectorAll("[id$='-close-btn']");
 
 // Profile elements
 const editProfileButton = document.querySelector(".profile__edit-btn");
@@ -134,7 +134,7 @@ function handleEditProfileSubmit(evt) {
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
-  const inputValues = { name: titleInput.value, link: imageInput.value };
+  const inputValues = { name: titleInput.value, link: imageInput.value, alt: titleInput.value };
   renderCard(inputValues, 'prepend');
 
   cardModalForm.reset();

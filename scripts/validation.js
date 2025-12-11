@@ -64,9 +64,6 @@ const settings = {
     );
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
   
-    console.log(inputList);
-    console.log(buttonElement);
-  
     toggleButtonState(inputList, buttonElement, config);
     formElement.addEventListener("reset", () => {
         disableButton(buttonElement, config);
